@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+}
+.header{
+    height: 80px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F45B69;
+}
+.logo-image{
+    height: 100%;
+    cursor: pointer;
+}
+.navList{
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    margin: 0rem 1.5rem;
+}
+.navList li{
+    cursor: pointer;
+    font-size: 1.15rem;
+}
+.navList li:hover{
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+.bo
