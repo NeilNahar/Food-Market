@@ -1,36 +1,90 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+  margin: 0px;
+  padding: 0px;
 }
-.container{
-    width: 100vw;
-    height: 100vh;
-    font-family: "Roboto", sans-serif;
+.container {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
 }
-.header{
-    height: 80px;
-    border: 1px solid red;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F45B69;
+.header {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f45b69;
+  box-shadow: 0px 0px 12px black;
 }
-.logo-image{
-    height: 100%;
-    cursor: pointer;
+.logo-image {
+  height: 100%;
+  cursor: pointer;
+  margin: 0rem 1.5rem;
 }
-.navList{
-    list-style: none;
-    display: flex;
-    gap: 1.2rem;
-    margin: 0rem 1.5rem;
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  margin: 0rem 1.5rem;
 }
-.navList li{
-    cursor: pointer;
-    font-size: 1.15rem;
+.navList li {
+  cursor: pointer;
+  font-size: 1.15rem;
 }
-.navList li:hover{
-    text-decoration: underline;
-    transform: scale(1.05);
+.navList li:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
 }
-.bo
+.search-pannel {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0rem;
+}
+.search-pannel input {
+  width: 25rem;
+  height: 1.3rem;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid black;
+}
+.search-pannel button {
+  padding: 0rem 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+}
+.card-container {
+  display: grid;
+  padding: 0rem 1.5rem 0rem 1.5rem;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem,auto));
+}
+.card {
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 0.5rem gray;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.card:hover {
+  box-shadow: 0px 0px 0.6rem rgb(110, 110, 110);
+  /* transform: scale(1.05); */
+}
+.card div {
+  display: flex;
+  justify-content: space-between;
+}
+.card img {
+  height: 11rem;
+  width: 11rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin: auto;
+}
+.image-description {
+  font-size: 0.8rem;
+}
+.footer{
+    text-align: center;
+    padding: 1.5rem 0rem;
+}
