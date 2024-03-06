@@ -751,8 +751,8 @@ const Card = (props) => {
 const Cardcontainer = () => {
   return (
     <div className="card-container">
-      {resturantData.map((item) => {
-        return <Card data={item} />;
+      {resturantData.map((item, index) => {
+        return <Card data={item} key={index} />;
       })}
     </div>
   );
