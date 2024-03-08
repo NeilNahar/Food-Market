@@ -34,6 +34,9 @@
   text-decoration: underline;
   transform: scale(1.05);
 }
+.login{
+  padding: 0.2rem;
+}
 .search-pannel {
   display: flex;
   justify-content: center;
@@ -56,14 +59,14 @@
   gap: 1.5rem;
   /* grid-template-columns: repeat(auto-fill, minmax(12rem, auto)); */
   padding: 0rem 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 13rem));
   box-sizing: border-box;
 }
-.sort-button{
+.sort-button {
   text-align: center;
   margin: 0rem 0rem 1.5rem 0rem;
 }
-.sort-button button{
+.sort-button button {
   padding: 0.2rem;
   cursor: pointer;
 }
@@ -93,9 +96,16 @@
 .image-description {
   font-size: 0.8rem;
 }
-.footer{
-    text-align: center;
-    margin-top: 2rem;
-    padding: 1.5rem 0rem;
-    background-color: aliceblue;
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem 0rem;
+  background-color: aliceblue;
+}
+.dummy-card {
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 0.5rem gray;
+  padding: 0.8rem;
+  height: 12rem;
+  background-color: rgb(196, 193, 193, 0.8);
 }

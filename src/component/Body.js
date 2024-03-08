@@ -1,16 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CDN } from "../utils/constant";
 import resturantData from "../utils/demoData";
+import Shimmer from "./Shimmer";
 
-const SearchPannel = () => {
-  return (
-    <div className="search-pannel">
-      <input type="text" placeholder="Search Food" />
-      <button>Search</button>
-    </div>
-  );
-};
-//
 const Card = (props) => {
   return (
     <div className="card">
@@ -25,23 +17,66 @@ const Card = (props) => {
 };
 
 const Cardcontainer = () => {
-  const [data, setData] = useState(resturantData);
+  const [resData, setresData] = useState([]);
+  const [resDataFiltered, setresDataFiltered] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const tempData = await fetch(
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4594965&lng=77.0266383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await tempData.json();
+    setresData(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setresDataFiltered(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+  }
+  if (resDataFiltered.length == 0) {
+    return <Shimmer />;
+  }
   return (
     <>
+      <div className="search-pannel">
+        <input
+          type="text"
+          placeholder="Search Food"
+          value={searchText}
+          onChange={(event) => {
+            setSearchText(event.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            setresDataFiltered(resData)
+            const filterSearch = resData.filter((element) => {
+              return element.info.name
+                .toLowerCase()
+                .includes(searchText.toLowerCase());
+            });
+            setresDataFiltered(filterSearch);
+          }}
+        >
+          Search
+        </button>
+      </div>
       <div className="sort-button">
         <button
           onClick={() => {
-            const filterData = data.filter((item) => {
+            const filterData = resDataFiltered.filter((item) => {
               return item.info.avgRating > 4;
             });
-            setData(filterData);
+            setresDataFiltered(filterData);
           }}
         >
           Sort by Rating
         </button>
       </div>
       <div className="card-container">
-        {data.map((item, index) => {
+        {resDataFiltered.map((item, index) => {
           return <Card data={item} key={index} />;
         })}
       </div>
@@ -52,7 +87,6 @@ const Cardcontainer = () => {
 const Body = () => {
   return (
     <div className="body">
-      <SearchPannel />
       <Cardcontainer />
     </div>
   );
