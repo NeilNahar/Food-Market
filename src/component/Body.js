@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { CDN } from "../utils/constant";
-import resturantData from "../utils/demoData";
+// import resturantData from "../utils/demoData";
 import Shimmer from "./Shimmer";
 
 const Card = (props) => {
