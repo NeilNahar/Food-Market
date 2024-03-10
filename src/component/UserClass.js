@@ -6,7 +6,7 @@ class UserClass extends React.Component {
   }
   render() {
     return (
-      <div className="userDetail">
+      <div className="flex flex-col gap-1 border-2 border-gray-400 rounded-2xl p-2">
         <h3>{this.props.name}</h3>
         <p>Role: {this.props.role}</p>
         <p>Location: {this.props.location}</p>

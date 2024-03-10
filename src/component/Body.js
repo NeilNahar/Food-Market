@@ -6,13 +6,13 @@ import useStatus from "../utils/useStatus";
 
 const Card = (props) => {
   return (
-    <div className="card">
-      <img src={CDN + props.data.info.cloudinaryImageId} alt="Food Image" />
-      <div>
+    <div className="rounded-2xl shadow-lg shadow-slate-500 p-3.5 flex flex-col gap-3.5 hover:shadow-slate-700 hover:scale-105">
+      <img className="h-40 w-full rounded-2xl" src={CDN + props.data.info.cloudinaryImageId} alt="Food Image" />
+      <div className="flex justify-between text-sm font-semibold">
         <p>{props.data.info.name}</p>
-        <span>{props.data.info.avgRating}</span>
+        <span cl>{props.data.info.avgRating}</span>
       </div>
-      <p className="image-description">Cost: {props.data.info.costForTwo}</p>
+      <p className="text-xs">Cost: {props.data.info.costForTwo}</p>
     </div>
   );
 };
@@ -21,8 +21,6 @@ const Cardcontainer = () => {
   const [resData, setresData] = useState([]);
   const [resDataFiltered, setresDataFiltered] = useState([]);
   const [searchText, setSearchText] = useState("");
-
-
 
   useEffect(() => {
     fetchData();
@@ -40,17 +38,18 @@ const Cardcontainer = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
-  const status=useStatus()
-  if(status==false){
-    return <div className="show-none">You are offline</div>
+  const status = useStatus();
+  if (status == false) {
+    return <div className="flex justify-center items-center w-full h-auto">You are offline</div>;
   }
   if (resDataFiltered.length == 0) {
     return <Shimmer />;
   }
   return (
     <>
-      <div className="search-pannel">
+      <div className="flex justify-center gap-4 py-8">
         <input
+          className="w-96 h-5 rounded-lg py-3 px-2 border border-solid border-black"
           type="text"
           placeholder="Search Food"
           value={searchText}
@@ -59,6 +58,7 @@ const Cardcontainer = () => {
           }}
         />
         <button
+          className="px-3.5 border border-solid border-black rounded-lg"
           onClick={() => {
             setresDataFiltered(resData);
             const filterSearch = resData.filter((element) => {
@@ -72,8 +72,8 @@ const Cardcontainer = () => {
           Search
         </button>
       </div>
-      <div className="sort-button">
-        <button
+      <div className="text-center mb-6">
+        <button className="p-1 cursor-pointer border border-solid border-black bg-slate-400 rounded-md"
           onClick={() => {
             const filterData = resDataFiltered.filter((item) => {
               return item.info.avgRating > 4;
@@ -84,7 +84,7 @@ const Cardcontainer = () => {
           Sort by Rating
         </button>
       </div>
-      <div className="card-container">
+      <div className="grid gap-6 px-6 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 auto-rows-max">
         {resDataFiltered.map((item) => {
           return (
             <Link to={"/restaurant/" + item.info.id} key={item.info.id}>

@@ -11,7 +11,7 @@ import Restaurant from "./component/Restaurant";
 
 const Container = () => {
   return (
-    <div className="container">
+    <div className="w-full h-screen">
       <Header />
       <Outlet />
       <Footer />

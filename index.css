@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0px;
   padding: 0px;
 }
@@ -59,9 +59,7 @@ Link{
 }
 .card-container {
   display: grid;
-  /* width: 100%; */
   gap: 1.5rem;
-  /* grid-template-columns: repeat(auto-fill, minmax(12rem, auto)); */
   padding: 0rem 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(12rem, auto));
   grid-auto-rows: 18rem;
@@ -121,7 +119,6 @@ Link{
 .restaurant{
   padding: 1rem;
   width: 50rem;
-  /* border: 1px solid red; */
   margin: 2rem auto;
 }
 .restaurant-description{
@@ -158,4 +155,8 @@ Link{
   align-items: center;
   width: 100%;
   height: auto;
-}
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
