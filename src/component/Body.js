@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { CDN } from "../utils/constant";
-// import resturantData from "../utils/demoData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useStatus from "../utils/useStatus";
 
 const Card = (props) => {
   return (
@@ -21,6 +22,8 @@ const Cardcontainer = () => {
   const [resDataFiltered, setresDataFiltered] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -33,7 +36,13 @@ const Cardcontainer = () => {
     setresData(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setresDataFiltered(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setresDataFiltered(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  }
+  const status=useStatus()
+  if(status==false){
+    return <div className="show-none">You are offline</div>
   }
   if (resDataFiltered.length == 0) {
     return <Shimmer />;
@@ -51,7 +60,7 @@ const Cardcontainer = () => {
         />
         <button
           onClick={() => {
-            setresDataFiltered(resData)
+            setresDataFiltered(resData);
             const filterSearch = resData.filter((element) => {
               return element.info.name
                 .toLowerCase()
@@ -76,8 +85,12 @@ const Cardcontainer = () => {
         </button>
       </div>
       <div className="card-container">
-        {resDataFiltered.map((item, index) => {
-          return <Card data={item} key={index} />;
+        {resDataFiltered.map((item) => {
+          return (
+            <Link to={"/restaurant/" + item.info.id} key={item.info.id}>
+              <Card data={item} />
+            </Link>
+          );
         })}
       </div>
     </>

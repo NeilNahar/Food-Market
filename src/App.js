@@ -7,6 +7,7 @@ import Footer from "./component/Footer";
 import About from "./component/About";
 import Contact from "./component/Contact";
 import Error from "./component/Error";
+import Restaurant from "./component/Restaurant";
 
 const Container = () => {
   return (
@@ -34,6 +35,10 @@ const routingConfiguration = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurant/:restid",
+        element: <Restaurant />,
       },
     ],
     errorElement: <Error />,
