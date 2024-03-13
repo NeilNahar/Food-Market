@@ -12,7 +12,6 @@ const useRestaurantData = (restid) => {
     const resInfo = await fetch(RESTAURANTURL + restid);
     const resInfoJson = await resInfo.json();
     setResData(resInfoJson.data.cards);
-    console.log(resInfoJson.data.cards)
   };
   return resData;
 };

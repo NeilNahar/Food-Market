@@ -6,14 +6,29 @@ import useStatus from "../utils/useStatus";
 
 const Card = (props) => {
   return (
-    <div className="rounded-2xl shadow-lg shadow-slate-500 h-full p-3.5 flex flex-col gap-3.5 hover:shadow-slate-700 hover:scale-105">
-      <img className="h-40 w-full rounded-2xl" src={CDN + props.data.info.cloudinaryImageId} alt="Food Image" />
+    <div className="rounded-2xl shadow-lg shadow-slate-300 h-full p-3.5 flex flex-col gap-3.5 hover:shadow-slate-700">
+      <img
+        className="h-40 w-full rounded-2xl"
+        src={CDN + props.data.info.cloudinaryImageId}
+        alt="Food Image"
+      />
       <div className="flex justify-between text-sm font-semibold">
         <p>{props.data.info.name}</p>
         <span cl>{props.data.info.avgRating}</span>
       </div>
       <p className="text-xs">Cost: {props.data.info.costForTwo}</p>
     </div>
+  );
+};
+
+const HigerOrderCard = (props) => {
+  return (
+    <>
+      <div className="h-full">
+        <label className="rounded-tl-2xl absolute bg-neutral-600 text-neutral-300 py-0.5 px-1.5 hover:shadow-slate-700">People's Choice</label>
+        <Card data={props.data} />
+      </div>
+    </>
   );
 };
 
@@ -40,7 +55,11 @@ const Cardcontainer = () => {
   }
   const status = useStatus();
   if (status == false) {
-    return <div className="flex justify-center items-center w-full h-auto">You are offline</div>;
+    return (
+      <div className="flex justify-center items-center w-full h-auto">
+        You are offline
+      </div>
+    );
   }
   if (resDataFiltered.length == 0) {
     return <Shimmer />;
@@ -73,7 +92,8 @@ const Cardcontainer = () => {
         </button>
       </div>
       <div className="text-center mb-6">
-        <button className="p-1 cursor-pointer border border-solid border-black bg-slate-400 rounded-md"
+        <button
+          className="p-1 cursor-pointer border border-solid border-black bg-slate-400 rounded-md"
           onClick={() => {
             const filterData = resDataFiltered.filter((item) => {
               return item.info.avgRating > 4;
@@ -88,7 +108,11 @@ const Cardcontainer = () => {
         {resDataFiltered.map((item) => {
           return (
             <Link to={"/restaurant/" + item.info.id} key={item.info.id}>
-              <Card data={item} />
+              {item.info.avgRating > 4 ? (
+                <HigerOrderCard data={item} />
+              ) : (
+                <Card data={item} />
+              )}
             </Link>
           );
         })}

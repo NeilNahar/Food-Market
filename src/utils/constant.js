@@ -3,3 +3,5 @@ export const LOGO = "https://images-platform.99static.com/A_Ax0GQuo_NHI0Y7XZHmFt
 export const CDN = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 
 export const RESTAURANTURL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.4594965&lng=77.0266383&restaurantId="
+
+export const FOODITEMURL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/"

@@ -8,14 +8,19 @@ import About from "./component/About";
 import Contact from "./component/Contact";
 import Error from "./component/Error";
 import Restaurant from "./component/Restaurant";
+import store from "./utils/store";
+import { Provider } from "react-redux";
+import Cart from "./component/Cart";
 
 const Container = () => {
   return (
-    <div className="w-full h-screen">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <div className="w-full h-screen">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </Provider>
   );
 };
 
@@ -35,6 +40,10 @@ const routingConfiguration = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/restaurant/:restid",
