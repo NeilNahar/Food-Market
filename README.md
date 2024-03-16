@@ -9,7 +9,10 @@ This is a food ordering web application built using HTML, CSS, JavaScript, React
 5.	REACT
 6.	REDUX
 7.	JEST
-
+   
+# Prerequisites
+- Node.js is required to run this application.
+  
 # Features
 - Browse a variety of food items
 - Add items to the cart
@@ -17,14 +20,20 @@ This is a food ordering web application built using HTML, CSS, JavaScript, React
 - Remove items from the cart
 - Place orders
 
-# Install dependencies:
+# Installation
+1. Clone the repository.
+2. Navigate to the project directory in your terminal.
+3. Install dependencies by running:
 npm install
 
 # Usage 
 1.	Start the development server:
-npm start
-2.	Open your browser and visit http://localhost:3000 to view the application. 
+x parcel index.html
+2.	Open your browser and visit http://localhost:1234 to view the application. 
 3.	Browse food items, add them to the cart, adjust quantities, and place orders.
+
+# API Configuration
+The API endpoint is designated in a constant.js file. You can change it according to your requirements.
 
 # Testing 
 This project uses Jest for unit testing. To run tests, execute the following command:
