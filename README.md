@@ -28,7 +28,7 @@ npm install
 
 # Usage 
 1.	Start the development server:
-x parcel index.html
+npx parcel index.html
 2.	Open your browser and visit http://localhost:1234 to view the application. 
 3.	Browse food items, add them to the cart, adjust quantities, and place orders.
 
