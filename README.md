@@ -1,6 +1,9 @@
 # FoodMarket - Food Ordering App
 This is a food ordering web application built using HTML, CSS, JavaScript, React, Redux, Jest, and Tailwind CSS. The application allows users to browse a variety of food items, add them to their cart, and place orders. This README provides an overview of the project structure, installation instructions, and usage guide.
 
+# API Configuration
+The API endpoint is designated in a constant.js file and gets frequently updated. You can change it according to your requirements.
+
 # Languages used
 1.	HTML
 2.	CSS
@@ -31,9 +34,6 @@ npm install
 npx parcel index.html
 2.	Open your browser and visit http://localhost:1234 to view the application. 
 3.	Browse food items, add them to the cart, adjust quantities, and place orders.
-
-# API Configuration
-The API endpoint is designated in a constant.js file. You can change it according to your requirements.
 
 # Testing 
 This project uses Jest for unit testing. To run tests, execute the following command:
